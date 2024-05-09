@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from var import variables as var
 
 page_url = 'https://lspd.gta.world/memberlist.php?mode=viewprofile&u=8173'
+#page_url = 'https://lspd.gta.world/memberlist.php?mode=viewprofile&u=916'
 login_url = 'https://lspd.gta.world/ucp.php?mode=login&redirect=index.php'
 
 chrome_options = Options()
@@ -22,5 +23,14 @@ login_button.click()
 
 driver.get(page_url)
 
-result = driver.find_element(By. CSS_SELECTOR, '#viewprofile > div.row > div > div > div.panel-body > ul > li:nth-child(12)')
-print(result.text[17:35])
+data = driver.find_elements(By. CSS_SELECTOR, '#viewprofile > div.row > div > div > div.panel-body > ul > li')
+for i in data:
+    result = i.text.split('\n')
+    for line in result:
+        if "Discord User ID:" in line:
+            discord_id = line.split("Discord User ID:")[1].strip()
+            print("Discord User ID:", discord_id)
+            break
+
+
+
