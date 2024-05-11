@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from var import variables as var
 from dotenv import load_dotenv
 import os
 load_dotenv()
