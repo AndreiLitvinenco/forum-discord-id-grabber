@@ -11,17 +11,17 @@ login_url = 'https://lspd.gta.world/ucp.php?mode=login&redirect=index.php'
 
 #   -------------------------------------------------------
 #                      Headless runner
-#chrome_options = Options()
-#chrome_options.add_argument('--headless=new')
-#driver = webdriver.Chrome(options=chrome_options)
+chrome_options = Options()
+chrome_options.add_argument('--headless=new')
+driver = webdriver.Chrome(options=chrome_options)
 #   -------------------------------------------------------
 
 
 #   -------------------------------------------------------
 #                      Testing runner
-chrome_options = Options()
-chrome_options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(options=chrome_options)
+#chrome_options = Options()
+#chrome_options.add_experimental_option("detach", True)
+#driver = webdriver.Chrome(options=chrome_options)
 #   -------------------------------------------------------
 
 driver.get(login_url)
@@ -42,8 +42,14 @@ time.sleep(2)
 data = driver.find_elements(By.CSS_SELECTOR, '#phpbb > div.btn-group.bootstrap-select.open > div > ul')
 for i in data:
     result = i.text.split('\n')
-    print(result)
+    result.remove('Registered users')
+    print(result, type(result), "\n")
     #print(i.text)
+
+
+for i in range(len(result)):
+    print(f'{result[-1]} role has been checked \n')
+    result.pop()
 
 
 
