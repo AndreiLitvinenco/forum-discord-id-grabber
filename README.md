@@ -1,6 +1,7 @@
 # discord-id-grabbber
 
-Simple python script using selenium web driver that grabs a user's discord ID from a web forum written by Allprogamer for Edy's project.
+Simple python script using selenium web driver that grabs a user's discord ID from a web forum written initially as a proof of concept for Edy's project.
+!!README is not up to date!!
 
 ## Requirements
 
